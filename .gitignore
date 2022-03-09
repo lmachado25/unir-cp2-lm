@@ -3,3 +3,5 @@
 .comandos.txt
 .vm_sizes
 /terraform/credentials.tf
+.terraform.lock.hcl
+**/*.terraform
