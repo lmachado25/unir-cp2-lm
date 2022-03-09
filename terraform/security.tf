@@ -41,10 +41,3 @@ resource "azurerm_network_interface_security_group_association" "securityGroupAs
     network_security_group_id = azurerm_network_security_group.securityGroupLmCp2.id
 
 }
-
-# Vinculamos el security group al interface de red - Worker2
-resource "azurerm_network_interface_security_group_association" "securityGroupAsocWorker2LmCp2" {
-    network_interface_id      = azurerm_network_interface.nic-worker-2.id
-    network_security_group_id = azurerm_network_security_group.securityGroupLmCp2.id
-
-}

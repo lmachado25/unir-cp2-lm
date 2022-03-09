@@ -121,37 +121,3 @@ resource "azurerm_public_ip" "publicIpWorker1LmCp2" {
     }
 
 }
-
-# Create NIC - Worker2
-resource "azurerm_network_interface" "nic-worker-2" {
-  name                = "vmnicworker2"  
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
-
-    ip_configuration {
-    name                           = "ipvmworker2"
-    subnet_id                      = azurerm_subnet.subNetLmCp2.id 
-    private_ip_address_allocation  = "Static"
-    private_ip_address             = "192.168.1.112"
-    public_ip_address_id           = azurerm_public_ip.publicIpWorker2LmCp2.id
-  }
-
-    tags = {
-        environment = var.environment
-    }
-
-}
-
-# IP pública - Worker2
-resource "azurerm_public_ip" "publicIpWorker2LmCp2" {
-  name                = "vmpublicipworker2"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
-  allocation_method   = "Dynamic"
-  sku                 = "Basic"
-
-    tags = {
-        environment = var.environment
-    }
-
-}
