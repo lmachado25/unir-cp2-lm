@@ -10,17 +10,6 @@ terraform {
   }
 }
 
-
-# crea un service principal y rellena los siguientes datos para autenticar
-provider "azurerm" {
-  features {}
-  subscription_id = "b1b164f1-7b71-44eb-999a-df58ac3010d6"
-  client_id       = "aa297a9b-24d2-458c-b361-8ab4f60031a7"
-  client_secret   = "OJ2.9Cetn84yDZ3u8gw-nqS_Ate7YSI.0D"
-  tenant_id       = "899789dc-202f-44b4-8472-a6d40f9eb440"
-}
-
-
 # Creación del Resource Group
 
 resource "azurerm_resource_group" "rg" {
