@@ -1,0 +1,7 @@
+---
+- name: 2 - Enable service nfs-server
+  ansible.builtin.systemd:
+    name: nfs-server
+    state: started
+    enabled: yes
+  become: yes

@@ -127,11 +127,11 @@ output master_public_ip {
 }
 
 # Mostrar IP pública - Nfs
-output worker1_public_ip {
+output nfs_public_ip {
   value       = azurerm_linux_virtual_machine.vmNfs.public_ip_address
 }
 
 # Mostrar IP pública - Worker1
-output worker2_public_ip {
+output worker1_public_ip {
   value       = azurerm_linux_virtual_machine.vmWorker1.public_ip_address
 }

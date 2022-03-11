@@ -1,4 +1,6 @@
+---
 - name: 1 - update all packages - dnf update
   dnf:
     name: "*"
     state: latest
+  become: yes

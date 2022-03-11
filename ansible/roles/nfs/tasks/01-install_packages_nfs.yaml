@@ -1,0 +1,6 @@
+---
+- name: 1 - install packages nfs
+  dnf:
+    name: "{{ packages_nfs }}"
+    state: present
+  become: true

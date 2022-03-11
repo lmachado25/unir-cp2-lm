@@ -1,10 +1,10 @@
 ---
-- name: Despliegue nodo nfs
-  hosts: nfs
+- name: Despliegue nodos workers
+  hosts: workers
   vars_files:
     - "groups_vars/common.yaml"
-    - "groups_vars/nfs.yaml"
+    - "groups_vars/k8s.yaml"
   gather_facts: false
   roles:
     - common
-    - nfs
+    - k8s

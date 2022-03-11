@@ -1,0 +1,13 @@
+---
+- name: 4 - Configurar master y workers para acceso al nfs en /etc/exports
+  lineinfile:
+    dest: /etc/exports
+    regexp: '.*{{ item }}.*'
+    line: '/srv/nfs	{{ item }}(rw,sync)'
+    state: present
+  loop: '{{ ip_access }}'
+  become: yes
+
+- name: Aplicar configuración a /etc/exports
+  command: 'exportfs -r'
+  become: yes

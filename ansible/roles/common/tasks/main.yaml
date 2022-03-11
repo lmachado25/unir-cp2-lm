@@ -1,5 +1,7 @@
 ---
-#- include_tasks: 01-dnf_update.yaml
-#- include_tasks: 02-config_sync_time.yaml
-#- include_tasks: 03-config_SELinux.yaml
+- include_tasks: 01-dnf_update.yaml
+- include_tasks: 02-config_sync_time.yaml
+- include_tasks: 03-config_SELinux.yaml
 - include_tasks: 04-install_packages.yaml
+- include_tasks: 05-config_etc_hosts.yaml
+- include_tasks: 06-config_firewall.yaml

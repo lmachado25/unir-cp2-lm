@@ -1,0 +1,14 @@
+---
+- name: 5.1 - Abrir puertos de los servicios nfs"
+  firewalld:
+    service: '{{ item }}'
+    permanent: yes
+    state: enabled
+  loop: '{{ fw_services }}'
+  become: yes
+
+- name: 5.2 - Recargar el servicio firewall
+  systemd:
+    name: firewalld
+    state: reloaded
+  become: yes

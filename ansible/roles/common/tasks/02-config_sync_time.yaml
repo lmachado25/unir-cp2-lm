@@ -2,7 +2,8 @@
 - name: 2.1 - Configurar zona horaria
   timezone:
     name: "{{ timezone }}"
-
+  become: yes
+  
 - name: 2.2 - Instalar chrony
   dnf:
     name: chrony

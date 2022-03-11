@@ -1,0 +1,6 @@
+---
+- name: 3 - Crear carpeta /srv/nfs
+  file:
+    path: /srv/nfs
+    state: directory
+  become: yes

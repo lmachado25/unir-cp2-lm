@@ -3,6 +3,8 @@
   hosts: master
   vars_files:
     - "groups_vars/common.yaml"
+    - "groups_vars/k8s.yaml"
   gather_facts: false
   roles:
     - common
+    - k8s
