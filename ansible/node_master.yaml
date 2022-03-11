@@ -1,0 +1,8 @@
+---
+- name: Despliegue nodo master
+  hosts: master
+  vars_files:
+    - "groups_vars/common.yaml"
+  gather_facts: false
+  roles:
+    - common

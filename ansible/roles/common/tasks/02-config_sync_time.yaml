@@ -1,0 +1,23 @@
+---
+- name: 2.1 - Configurar zona horaria
+  timezone:
+    name: "{{ timezone }}"
+
+- name: 2.2 - Instalar chrony
+  dnf:
+    name: chrony
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: 2.3 - Iniciar chronyd
+  ansible.builtin.systemd:
+    daemon_reload: no
+    state: started
+    name: chronyd
+    enabled: yes
+  become: yes
+
+- name: 2.4 - Habilitar set-ntp
+  command: timedatectl set-ntp true
+  become: yes

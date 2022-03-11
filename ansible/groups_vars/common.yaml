@@ -1,0 +1,3 @@
+timezone: 'America/Argentina/Buenos_Aires'
+status_selinux: disabled
+packages: [nfs-utils, nfs4-acl-tools, wget]

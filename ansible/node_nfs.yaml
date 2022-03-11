@@ -1,0 +1,9 @@
+---
+- name: Despliegue nodo nfs
+  hosts: nfs
+  vars_files:
+    - "groups_vars/common.yaml"
+  gather_facts: false
+  roles:
+    - common
+    - nfs

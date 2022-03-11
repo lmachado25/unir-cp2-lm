@@ -1,0 +1,2 @@
+---
+- include_tasks: 01-install_packages_nfs.yaml

@@ -1,0 +1,6 @@
+---
+- name: 4 - install packages
+  dnf:
+    name: "{{ packages }}"
+    state: present
+  become: true
