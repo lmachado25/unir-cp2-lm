@@ -13,11 +13,11 @@ variable "storage_account" {
 variable "public_key_path" {
   type = string
   description = "Ruta para la clave pública de acceso a las instancias"
-  default = "/home/lmachado/.ssh/id_rsa.pub"
+  default = "/home/ubuntu/.ssh/id_rsa.pub"
 }
 
 variable "ssh_user" {
   type = string
   description = "Usuario para hacer ssh"
-  default = "lmachado"
+  default = "ubuntu"
 }
