@@ -10,3 +10,13 @@ hosts_lm_cp2:
   - name: worker-01
     ip: 192.168.1.111
     alias:  worker-01.lm.ar
+
+traffic_firewall:
+  - key: net.bridge.bridge-nf-call-ip6tables
+    value: 1
+    
+  - key: net.bridge.bridge-nf-call-iptables
+    value: 1
+
+  - key: net.ipv4.ip_forward
+    value: 1

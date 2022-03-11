@@ -3,16 +3,3 @@ timezone: 'America/Argentina/Buenos_Aires'
 status_selinux: disabled
 
 packages: [nfs-utils, nfs4-acl-tools, wget]
-
-hosts_lm_cp2:
-  - name: nfs
-    ip: 192.168.1.115
-    alias: nfs.lm.ar
-  
-  - name: master
-    ip: 192.168.1.110
-    alias: master.lm.ar
-
-  - name: worker-01
-    ip: 192.168.1.111
-    alias:  worker-01.lm.ar

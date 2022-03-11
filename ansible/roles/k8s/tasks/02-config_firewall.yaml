@@ -6,10 +6,17 @@
     enabled: yes
   become: yes
 
-- name: 2.2 - Deshabilitar AllowZoneDrifting
+- name: 2.2 - Deshabilitar opción AllowZoneDrifting
   lineinfile:
     dest: /etc/firewalld/firewalld.conf
     regexp: 'AllowZoneDrifting.*'
-    line: 'AllowZoneDrifting:no'
+    line: 'AllowZoneDrifting=no'
     state: present
+  become: yes
+
+- name: 2.3 - Reiniciar el servicio firewalld
+  ansible.builtin.systemd:
+    state: restarted
+    daemon_reload: yes
+    name: firewalld
   become: yes

@@ -1,0 +1,29 @@
+---
+- name: 3.1 - Cargar el módulo br_netfilter
+  modprobe:
+    name: br_netfilter
+    state: present
+  become: yes
+
+- name: 3.2 - Configurar masquerade
+  firewalld:
+    masquerade: yes
+    state: enabled
+    permanent: true
+  become: yes
+
+- name: 3.3 - Configurar variables para el manejo del tráfico del firewall
+  sysctl:
+    name: '{{ item.key }}'
+    value: '{{ item.value }}'
+    sysctl_file: /etc/sysctl.d/k8s.conf
+    reload: yes
+  with_items: '{{ traffic_firewall }}'
+  become: yes
+
+- name: 3.4 - Reiniciar el servicio firewalld
+  ansible.builtin.systemd:
+    state: restarted
+    daemon_reload: yes
+    name: firewalld
+  become: yes
