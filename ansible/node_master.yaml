@@ -8,6 +8,6 @@
     - "groups_vars/master.yaml"
   gather_facts: false
   roles:
-    - common
-    - k8s
+    #- common
+    #- k8s
     - master 

@@ -5,7 +5,7 @@
     immediate: yes
     port: "{{item.port}}/{{item.protocol}}"
     state: enabled
-  with_items: '{{ ports_master_firewall }}'
+  with_items: '{{ ports_workers_firewall }}'
 
 - name: 1.2 - Recargar el servicio firewall
   systemd:

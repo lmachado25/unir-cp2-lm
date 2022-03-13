@@ -1,0 +1,3 @@
+---
+- name: 5 - Instalar SDN
+  command: 'kubectl apply -f https://docs.projectcalico.org/manifests/canal.yaml'

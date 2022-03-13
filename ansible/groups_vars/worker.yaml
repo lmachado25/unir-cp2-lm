@@ -1,0 +1,7 @@
+ports_workers_firewall:
+  
+  - port: 8285
+    protocol: udp
+
+  - port: 8472
+    protocol: udp

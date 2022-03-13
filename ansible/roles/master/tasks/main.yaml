@@ -2,4 +2,7 @@
 #- include_tasks: 01.config_firewall_k8s.yaml
 #- include_tasks: 02.config_firewall_workers.yaml
 #- include_tasks: 03.install_CNI.yaml
-- include_tasks: 04.config_atrib_usr_root.yaml
+#- include_tasks: 04.config_atrib_usr_root.yaml
+#- include_tasks: 05.install_SDN.yaml
+- include_tasks: 06.install_ingress_controles.yaml
+- include_tasks: 07.restart_master.yaml

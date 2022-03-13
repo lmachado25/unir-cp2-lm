@@ -1,4 +1,4 @@
-ports_k8s:
+ports_master_firewall:
   - port: 6443
     protocol: tcp
   
@@ -10,6 +10,12 @@ ports_k8s:
 
   - port: 10255
     protocol: tcp
+
+  - port: 8285
+    protocol: udp
+
+  - port: 8472
+    protocol: udp
 
 firewall_workers_rules:
   - rule: 1

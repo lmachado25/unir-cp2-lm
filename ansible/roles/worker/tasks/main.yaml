@@ -1,0 +1,2 @@
+---
+- include_tasks: 01.config_firewall_k8s.yaml
