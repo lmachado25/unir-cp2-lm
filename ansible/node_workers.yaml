@@ -9,5 +9,5 @@
   gather_facts: false
   roles:
     #- common
-    #- k8s
+    - k8s
     - worker
