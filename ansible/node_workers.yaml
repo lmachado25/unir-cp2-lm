@@ -6,5 +6,5 @@
     - "groups_vars/k8s.yaml"
   gather_facts: false
   roles:
-    - common
+    #- common
     - k8s

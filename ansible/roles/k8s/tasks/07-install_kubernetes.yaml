@@ -1,0 +1,14 @@
+---
+- name: 7.1 - Instalar kubelet,kubeadm y kubectl
+  dnf:
+    name: [kubelet,kubeadm,kubectl]
+    disable_excludes: kubernetes
+    state: present
+  become: yes
+
+- name: 7.2 - Iniciar servicio kubelet
+  ansible.builtin.systemd:
+    name: kubelet
+    state: started
+    enabled: yes
+  become: yes

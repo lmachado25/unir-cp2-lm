@@ -5,26 +5,21 @@
   loop: '{{ containers_repos }}'
   become: yes
 
-- name: 'Copio archivo para config CRI-O'
-  copy:
-    src: 'crio.conf'
+- name: 5.2 - Configurar modulos del kernel para cri-o
+  ansible.builtin.copy:
+    src: 'cri-o.conf'
     dest: '/etc/modules-load.d/'
   become: yes
-  become_method: sudo
-
   
-- name: 'instalo CRI-O'
+- name: 5.3 Instalar cri-o
   dnf:
     name: 'cri-o'
     state: present
   become: yes
-  become_method: sudo
 
-- name: 'Inicializa servicio y setea inicio automatico para servicio cri-o'
-  systemd:
-    name: 'crio'
+- name: 5.4 - Iniciar servicio cri-o
+  ansible.builtin.systemd:
+    name: crio
     state: started
     enabled: yes
   become: yes
-  become_method: sudo
-
