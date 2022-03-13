@@ -5,3 +5,9 @@ ports_workers_firewall:
 
   - port: 8472
     protocol: udp
+
+  - port: 10250
+    protocol: tcp
+
+  - port: 30000-32767
+    protocol: tcp

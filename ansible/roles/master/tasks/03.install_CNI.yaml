@@ -4,7 +4,3 @@
 
 - name: 3.2 - Instalar el plugin CNI
   command: 'kubeadm init --pod-network-cidr {{ red_pods_k8s }}'
-  register: kubeadm_out
-
-- debug:
-    msg: '{{ kubeadm_out }}'

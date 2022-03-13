@@ -1,0 +1,6 @@
+- name: 7.1 - Instalar el plugin CNI
+  command: 'kubeadm token create --print-join-command'
+  register: kubeadm_out
+
+- name: 7.2 - Agregar las líneas al archivo token.conf
+  local_action: copy content="{{ kubeadm_out.stdout_lines[0] }}" dest="{{ file_token }}"
