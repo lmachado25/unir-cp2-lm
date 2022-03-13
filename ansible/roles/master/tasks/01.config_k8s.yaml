@@ -1,0 +1,15 @@
+---
+- name: 1.1 - Configurar el firewall para acceder a los servicios de kubernetes
+  firewalld:
+    permanent: yes
+    immediate: yes
+    port: "{{item.port}}/{{item.protocol}}"
+    state: enabled
+  with_items: '{{ ports_k8s }}'
+  become: yes 
+
+- name: 1.2 - Recargar el servicio firewall
+  systemd:
+    name: firewalld
+    state: reloaded
+  become: yes

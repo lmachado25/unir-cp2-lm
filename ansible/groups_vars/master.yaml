@@ -1,0 +1,12 @@
+ports_k8s:
+  - port: 6443
+    protocol: tcp
+  
+  - port: 2379-2380
+    protocol: tcp
+
+  - port: 10250-10252
+    protocol: tcp
+
+  - port: 10255
+    protocol: tcp
