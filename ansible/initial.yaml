@@ -1,0 +1,9 @@
+---
+- name: Despliegue inicial
+  hosts: all
+  become: true
+  vars_files:
+    - "groups_vars/initial.yaml"
+  gather_facts: false
+  roles:
+    - initial

@@ -1,0 +1,3 @@
+ssh_key: /home/lmachado/.ssh/id_rsa.pub
+
+user_ansible: ansible

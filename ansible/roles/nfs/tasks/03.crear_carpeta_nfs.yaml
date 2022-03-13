@@ -3,4 +3,3 @@
   file:
     path: /srv/nfs
     state: directory
-  become: yes

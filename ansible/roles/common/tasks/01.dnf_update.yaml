@@ -3,4 +3,3 @@
   dnf:
     name: "*"
     state: latest
-  become: yes

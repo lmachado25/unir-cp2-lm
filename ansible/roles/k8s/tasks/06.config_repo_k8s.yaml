@@ -3,11 +3,9 @@
   ansible.builtin.file:
     path: /etc/yum.repos.d/kubernetes.repo
     state: touch
-  become: yes
 
 - name: 6.2 - Agregar las líneas al archivo kubernetes.repo
   lineinfile:
    dest: /etc/yum.repos.d/kubernetes.repo
    line: '{{ item.line }}'
   with_items: '{{ k8s_repos }}'
-  become: yes

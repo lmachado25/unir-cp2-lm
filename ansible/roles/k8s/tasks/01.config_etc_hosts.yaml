@@ -6,4 +6,3 @@
     line: '{{ item.ip }} {{ item.name }} {{ item.alias }}'
     state: present
   with_items: '{{ hosts_lm_cp2 }}'
-  become: yes

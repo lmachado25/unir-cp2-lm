@@ -1,0 +1,14 @@
+---
+- name: 2.1 - Habilitar el acceso a los workers
+  ansible.posix.firewalld:
+    state: enabled
+    permanent: yes
+    zone: "{{ item.zone | default(omit) }}"
+    rich_rule: rule family={{ item.family }} source address={{ item.source_address }} {{ item.target }}
+  with_items: "{{ firewall_workers_rules }}"
+
+- name: 2.2 - Reiniciar el servicio firewalld
+  ansible.builtin.systemd:
+    state: restarted
+    daemon_reload: yes
+    name: firewalld

@@ -1,2 +1,5 @@
 ---
-- include_tasks: 01.config_k8s.yaml
+#- include_tasks: 01.config_firewall_k8s.yaml
+#- include_tasks: 02.config_firewall_workers.yaml
+#- include_tasks: 03.install_CNI.yaml
+- include_tasks: 04.config_atrib_usr_root.yaml

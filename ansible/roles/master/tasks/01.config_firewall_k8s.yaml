@@ -6,10 +6,8 @@
     port: "{{item.port}}/{{item.protocol}}"
     state: enabled
   with_items: '{{ ports_k8s }}'
-  become: yes 
 
 - name: 1.2 - Recargar el servicio firewall
   systemd:
     name: firewalld
     state: reloaded
-  become: yes

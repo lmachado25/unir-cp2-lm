@@ -1,8 +1,8 @@
 ---
-#- include_tasks: 01.config_etc_hosts.yaml
-#- include_tasks: 02.config_firewall.yaml
-#- include_tasks: 03.config_masquerade.yaml
-#- include_tasks: 04.config_swap.yaml
-#- include_tasks: 05.install_cri-o.yaml
+- include_tasks: 01.config_etc_hosts.yaml
+- include_tasks: 02.config_firewall.yaml
+- include_tasks: 03.config_masquerade.yaml
+- include_tasks: 04.config_swap.yaml
+- include_tasks: 05.install_cri-o.yaml
 - include_tasks: 06.config_repo_k8s.yaml
 - include_tasks: 07.install_kubernetes.yaml

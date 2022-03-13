@@ -1,7 +1,6 @@
 ---
 - name: 4.1 - Deshabilitar swap
   command: swapoff  -a
-  become: yes
  
 - name: 4.2 - Eliminar archivo el mount del /etc/fstab
   lineinfile:
@@ -9,4 +8,3 @@
     regexp: '.*/dev/mapper/cs-swap.*'
     line: ''
     state: present
-  become: yes

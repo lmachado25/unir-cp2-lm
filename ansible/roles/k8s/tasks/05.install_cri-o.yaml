@@ -3,23 +3,19 @@
     url: '{{ item.url }}'
     dest: '{{ item.folder }}'
   loop: '{{ containers_repos }}'
-  become: yes
 
 - name: 5.2 - Configurar modulos del kernel para cri-o
   ansible.builtin.copy:
     src: 'cri-o.conf'
     dest: '/etc/modules-load.d/'
-  become: yes
-  
+ 
 - name: 5.3 Instalar cri-o
   dnf:
     name: 'cri-o'
     state: present
-  become: yes
 
 - name: 5.4 - Iniciar servicio cri-o
   ansible.builtin.systemd:
     name: crio
     state: started
     enabled: yes
-  become: yes

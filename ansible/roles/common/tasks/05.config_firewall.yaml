@@ -4,7 +4,6 @@
     name: firewalld
     state: started
     enabled: yes
-  become: yes
 
 - name: 6.2 - Deshabilitar AllowZoneDrifting
   lineinfile:
@@ -12,4 +11,3 @@
     regexp: 'AllowZoneDrifting.*'
     line: 'AllowZoneDrifting:no'
     state: present
-  become: yes

@@ -6,8 +6,6 @@
     line: '/srv/nfs	{{ item }}(rw,sync)'
     state: present
   loop: '{{ ip_access }}'
-  become: yes
 
 - name: Aplicar configuración a /etc/exports
   command: 'exportfs -r'
-  become: yes

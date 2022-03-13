@@ -10,3 +10,12 @@ ports_k8s:
 
   - port: 10255
     protocol: tcp
+
+firewall_workers_rules:
+  - rule: 1
+    family: ipv4
+    source_address: 192.168.1.111/32
+    target: accept
+
+red_pods_k8s: 192.168.0.0/16
+

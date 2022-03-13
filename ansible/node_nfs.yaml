@@ -1,10 +1,11 @@
 ---
 - name: Despliegue nodo nfs
   hosts: nfs
+  become: true
   vars_files:
     - "groups_vars/common.yaml"
     - "groups_vars/nfs.yaml"
   gather_facts: false
   roles:
     - common
-    - nfs
+    #- nfs

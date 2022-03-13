@@ -1,12 +1,13 @@
 ---
 - name: Despliegue nodo master
   hosts: master
+  become: true
   vars_files:
     - "groups_vars/common.yaml"
     - "groups_vars/k8s.yaml"
     - "groups_vars/master.yaml"
   gather_facts: false
   roles:
-    #- common
-    #- k8s
-    - master
+    - common
+    - k8s
+    - master 
