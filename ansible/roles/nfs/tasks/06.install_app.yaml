@@ -1,4 +1,4 @@
 - name: 6 - Copiar archivo de applicacion
   copy:
-    src: 'calculator.html'
-    dest: '/srv/nfs/calculator.html'
+    src: 'index.html'
+    dest: '/srv/nfs/index.html'

@@ -2,84 +2,87 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: jenkins
+  name: webapp-calc
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jenkins
-  namespace: jenkins
+  name: webapp-calc-deployment
+  namespace: webapp-calc
+  labels:
+    app: webapp-calc
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: jenkins
+      app: webapp-calc
   template:
     metadata:
       labels:
-        app: jenkins
+        app: webapp-calc
     spec:
       containers:
-      - name: jenkins
-        image: jenkins/jenkins:lts
+      - name: webapp-calc
+        image: nginx:1.7.9
         ports:
-          - name: http-port
-            containerPort: 8080
-          - name: jnlp-port
-            containerPort: 50000
+        - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80 
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
         volumeMounts:
-          - name: jenkins-vol
-            mountPath: /var/jenkins_vol
+        - name: site-pvc
+          mountPath: /usr/share/nginx/html
       volumes:
-        - name: jenkins-vol
-          emptyDir: {}
+      - name: site-pvc
+        persistentVolumeClaim:
+          claimName: nfs-pvc
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: jenkins
-  namespace: jenkins
+    name: calc-service
+    namespace: webapp-calc
 spec:
-  type: NodePort
-  ports:
-    - port: 8080
-      targetPort: 8080
-      nodePort: 30000
-  selector:
-    app: jenkins
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: jenkins-jnlp
-  namespace: jenkins
-spec:
-  type: ClusterIP
-  ports:
-    - port: 50000
-      targetPort: 50000
-  selector:
-    app: jenkins
-
+    selector:
+      app: webapp-calc
+    ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: jenkins-ingress
-  namespace: jenkins
+  name: calc-ingress
+  namespace: webapp-calc
   labels:
-    app: jenkins
+    app: webapp-calc
+  annotations:
+      haproxy.org/path-rewrite: "/"
 spec:
   rules:
-  #- host: devops.com
-  -  http:
+  - host: master.lm.ar
+  - http:
       paths:
-      - path: /
+      - path: /calc
         pathType: "Prefix"
         backend:
           service:
-            name: jenkins
+            name: calc-service
             port:
-              number: 8080
+              number: 80
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: haproxy-configmap
+  namespace: webapp-calc
+data:
+  servers-increment: "42"
+  ssl-redirect: "OFF"
