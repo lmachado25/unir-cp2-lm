@@ -17,6 +17,9 @@ ports_master_firewall:
   - port: 8472
     protocol: udp
 
+  - port: 29000-35000
+    protocol: tcp
+
 firewall_workers_rules:
   - rule: 1
     family: ipv4
