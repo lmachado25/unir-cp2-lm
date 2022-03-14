@@ -38,4 +38,4 @@ k8s_repos:
   - line: gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
   - line: exclude=kubelet kubeadm kubectl
 
-file_token: /home/lmachado/unir-cp2-lm/ansible/roles/worker/files/token.conf
+file_token: ~/unir-cp2-lm/ansible/roles/worker/files/token.conf

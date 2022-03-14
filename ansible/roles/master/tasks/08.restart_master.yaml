@@ -1,3 +1,4 @@
+---
 - name: 8 - Reiniciar master
   reboot:
     msg: "Reinicio luego de instalar k8s"

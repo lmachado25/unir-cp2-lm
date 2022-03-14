@@ -1,8 +1,4 @@
 
-#- name: 3.3 - Crear el archivo repo token.conf
-#  #set_fact: token="{{ kubeadm_out.stdout_lines[0] }}"
-#  local_action: copy content="{{ kubeadm_out.stdout_lines[0] }}" dest="/home/lmachado/unir-cp2-lm/ansible/roles/worker/files/token.conf"
-
 ---
 - name: 2 - Join worker al cluster
   command: "{{ item }}"

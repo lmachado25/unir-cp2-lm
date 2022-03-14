@@ -7,5 +7,5 @@
     - "groups_vars/nfs.yaml"
   gather_facts: false
   roles:
-    #- common
+    - common
     - nfs

@@ -9,7 +9,7 @@
     - "groups_vars/webapp.yaml"
   gather_facts: false
   roles:
-    #- common
-    #- k8s
-    #- master 
+    - common
+    - k8s
+    - master 
     - webapp

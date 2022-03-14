@@ -6,4 +6,3 @@ ansible_user=lmachado
 nfs.lm.ar
 master.lm.ar
 worker-01.lm.ar
-

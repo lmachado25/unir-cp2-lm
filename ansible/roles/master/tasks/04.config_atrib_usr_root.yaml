@@ -5,7 +5,7 @@
     state: present
     regexp: "KUBECONFIG="
     line: " KUBECONFIG=/etc/kubernetes/admin.conf"
-
+---
 - name: 4.2 - Configurar acceso al cluster
   file:
     path: $HOME/.kube
