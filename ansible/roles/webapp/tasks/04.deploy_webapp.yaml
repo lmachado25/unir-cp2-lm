@@ -1,0 +1,7 @@
+- name: 4.1 - Copiar archivo deploy deployment.yaml
+  copy:
+    src: 'deployment.yaml'
+    dest: '{{ folder_dest }}deployment.yaml'
+
+- name: 4.2 - Deploy webapp calculator
+  command: 'kubectl apply -f {{ folder_dest }}deployment.yaml'

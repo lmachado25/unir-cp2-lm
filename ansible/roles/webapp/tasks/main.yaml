@@ -2,3 +2,4 @@
 #- include_tasks: 01.create_namespace.yaml
 #- include_tasks: 02.create_pv.yaml
 #- include_tasks: 03.create_pvc.yaml
+- include_tasks: 04.deploy_webapp.yaml
