@@ -5,3 +5,5 @@
 
 - name: 7.2 - Agregar las líneas al archivo token.conf
   local_action: copy content="{{ kubeadm_out.stdout_lines[0] }}" dest="{{ file_token }}"
+  become: false
+  run_once: true

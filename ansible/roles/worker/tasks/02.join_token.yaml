@@ -1,6 +1,6 @@
-
 ---
 - name: 2 - Join worker al cluster
   command: "{{ item }}"
   with_file:
     - "{{ file_token }}"
+  become: yes
