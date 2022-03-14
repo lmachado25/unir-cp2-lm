@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: nfs-pv
-  namespace: webapp
+  namespace: webapp-calc
 spec:
   capacity:
     storage: 10Gi
