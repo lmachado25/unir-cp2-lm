@@ -1,8 +1,0 @@
-[all:vars]
-ansible_python_interpreter=/usr/bin/python3
-ansible_user=lmachado
-
-[initial]
-nfs.lm.ar
-master.lm.ar
-worker-01.lm.ar
