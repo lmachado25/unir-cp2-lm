@@ -1,4 +1,4 @@
-- name: 7.1 - Reiniciar master
+- name: 8 - Reiniciar master
   reboot:
     msg: "Reinicio luego de instalar k8s"
     connect_timeout: 5

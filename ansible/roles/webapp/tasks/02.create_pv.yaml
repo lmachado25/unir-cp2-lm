@@ -1,0 +1,13 @@
+---
+- name: 2.1 - Crear carpeta para deploy nfs-pv.yaml
+  file:
+    path: '{{ folder_dest }}'
+    state: directory
+
+- name: 2.2 - Copiar archivo deploy nfs-pv.yaml
+  copy:
+    src: 'nfs-pv.yaml'
+    dest: '{{ folder_dest }}nfs-pv.yaml'
+
+- name: 2.3 - Crear persistent volumen
+  command: 'kubectl apply -f {{ folder_dest }}nfs-pv.yaml'

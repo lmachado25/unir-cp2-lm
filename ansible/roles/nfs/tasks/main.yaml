@@ -1,6 +1,7 @@
 ---
-- include_tasks: 01.install_packages_nfs.yaml
-- include_tasks: 02.config_nfs_server.yaml
-- include_tasks: 03.crear_carpeta_nfs.yaml
-- include_tasks: 04.config_share_nfs.yaml
-- include_tasks: 05.config_ports_firewall.yaml
+#- include_tasks: 01.install_packages_nfs.yaml
+#- include_tasks: 02.config_nfs_server.yaml
+#- include_tasks: 03.crear_carpeta_nfs.yaml
+#- include_tasks: 04.config_share_nfs.yaml
+#- include_tasks: 05.config_ports_firewall.yaml
+- include_tasks: 06.install_app.yaml

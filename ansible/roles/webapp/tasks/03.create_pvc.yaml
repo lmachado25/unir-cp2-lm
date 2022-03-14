@@ -1,0 +1,7 @@
+- name: 3.1 - Copiar archivo deploy nfs-pvc.yaml
+  copy:
+    src: 'nfs-pvc.yaml'
+    dest: '{{ folder_dest }}nfs-pvc.yaml'
+
+- name: 3.2 - Crear persistent volumen claim
+  command: 'kubectl apply -f {{ folder_dest }}nfs-pvc.yaml'
